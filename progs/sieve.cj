@@ -1,4 +1,4 @@
-int[100] p
+int p[100]
 int max
 int maxrt
 sync nextlock

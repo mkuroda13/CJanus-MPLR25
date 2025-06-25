@@ -58,11 +58,11 @@ globvardecl : INT IDENT
 		cmp.exec("set #"+$2+" "+cmp.getMem(1))
 	}
 }
-			| INT LSB NUM RSB IDENT
+			| INT IDENT LSB NUM RSB
 {
 	if !prep{
-		cmp.registerGlobal($5,T_INTA)
-		cmp.exec("set #"+$5+" "+cmp.getMem($3))
+		cmp.registerGlobal($2,T_INTA)
+		cmp.exec("set #"+$2+" "+cmp.getMem($4))
 	}
 }
 
