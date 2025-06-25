@@ -1,0 +1,2045 @@
+
+state 0
+	$accept: .prog $end 
+	$$4: .    (4)
+
+	.  reduce 4 (src line 30)
+
+	prog  goto 1
+	pmain  goto 2
+	$$4  goto 3
+
+state 1
+	$accept:  prog.$end 
+
+	$end  accept
+	.  error
+
+
+state 2
+	prog:  pmain.procs 
+	procs: .    (3)
+
+	PROCEDURE  shift 6
+	.  reduce 3 (src line 28)
+
+	procs  goto 4
+	proc  goto 5
+
+state 3
+	pmain:  $$4.globvardecls statements 
+	globvardecls: .    (7)
+
+	INT  shift 9
+	SYNC  shift 10
+	.  reduce 7 (src line 46)
+
+	globvardecls  goto 7
+	globvardecl  goto 8
+
+state 4
+	prog:  pmain procs.    (1)
+
+	.  reduce 1 (src line 25)
+
+
+state 5
+	procs:  proc.procs 
+	procs: .    (3)
+
+	PROCEDURE  shift 6
+	.  reduce 3 (src line 28)
+
+	procs  goto 11
+	proc  goto 5
+
+state 6
+	proc:  PROCEDURE.IDENT $$11 LPR argdecls RPR statements 
+
+	IDENT  shift 12
+	.  error
+
+
+state 7
+	pmain:  $$4 globvardecls.statements 
+	statements: .    (21)
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  reduce 21 (src line 113)
+
+	arrentry  goto 25
+	statements  goto 13
+	statement  goto 14
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 8
+	globvardecls:  globvardecl.globvardecls 
+	globvardecls: .    (7)
+
+	INT  shift 9
+	SYNC  shift 10
+	.  reduce 7 (src line 46)
+
+	globvardecls  goto 32
+	globvardecl  goto 8
+
+state 9
+	globvardecl:  INT.IDENT 
+	globvardecl:  INT.IDENT LSB variable RSB 
+
+	IDENT  shift 33
+	.  error
+
+
+state 10
+	globvardecl:  SYNC.IDENT 
+
+	IDENT  shift 34
+	.  error
+
+
+state 11
+	procs:  proc procs.    (2)
+
+	.  reduce 2 (src line 27)
+
+
+state 12
+	proc:  PROCEDURE IDENT.$$11 LPR argdecls RPR statements 
+	$$11: .    (11)
+
+	.  reduce 11 (src line 70)
+
+	$$11  goto 35
+
+state 13
+	pmain:  $$4 globvardecls statements.    (5)
+
+	.  reduce 5 (src line 36)
+
+
+state 14
+	statements:  statement.statements 
+	statements: .    (21)
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  reduce 21 (src line 113)
+
+	arrentry  goto 25
+	statements  goto 36
+	statement  goto 14
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 15
+	statement:  assign_statement.    (23)
+
+	.  reduce 23 (src line 117)
+
+
+state 16
+	statement:  arrassign_statement.    (24)
+
+	.  reduce 24 (src line 118)
+
+
+state 17
+	statement:  if_statement.    (25)
+
+	.  reduce 25 (src line 119)
+
+
+state 18
+	statement:  loop_statement.    (26)
+
+	.  reduce 26 (src line 120)
+
+
+state 19
+	statement:  call_statement.    (27)
+
+	.  reduce 27 (src line 121)
+
+
+state 20
+	statement:  SKIP.    (28)
+
+	.  reduce 28 (src line 122)
+
+
+state 21
+	statement:  local_block.    (29)
+
+	.  reduce 29 (src line 123)
+
+
+state 22
+	statement:  v_statement.    (30)
+
+	.  reduce 30 (src line 124)
+
+
+state 23
+	statement:  p_statement.    (31)
+
+	.  reduce 31 (src line 125)
+
+
+state 24
+	assign_statement:  IDENT.PLUS EQ tag $$32 expr 
+	assign_statement:  IDENT.MINUS EQ tag $$34 expr 
+	assign_statement:  IDENT.XOR EQ tag $$36 expr 
+	arrentry:  IDENT.LSB tag $$38 expr RSB 
+
+	PLUS  shift 37
+	MINUS  shift 38
+	XOR  shift 39
+	LSB  shift 40
+	.  error
+
+
+state 25
+	arrassign_statement:  arrentry.PLUS EQ $$40 expr 
+	arrassign_statement:  arrentry.MINUS EQ $$42 expr 
+	arrassign_statement:  arrentry.XOR EQ $$44 expr 
+
+	PLUS  shift 41
+	MINUS  shift 42
+	XOR  shift 43
+	.  error
+
+
+state 26
+	if_statement:  IF.lab lab lab lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 44
+
+state 27
+	loop_statement:  FROM.lab lab lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 45
+
+state 28
+	call_statement:  CALL.tag $$69 proccalls 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 46
+
+state 29
+	local_block:  LOCAL.$$57 INT IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+	$$57: .    (57)
+
+	.  reduce 57 (src line 356)
+
+	$$57  goto 47
+
+state 30
+	v_statement:  ACQUIRE.IDENT 
+
+	IDENT  shift 48
+	.  error
+
+
+state 31
+	p_statement:  WAIT.IDENT 
+
+	IDENT  shift 49
+	.  error
+
+
+state 32
+	globvardecls:  globvardecl globvardecls.    (6)
+
+	.  reduce 6 (src line 45)
+
+
+state 33
+	globvardecl:  INT IDENT.    (8)
+	globvardecl:  INT IDENT.LSB variable RSB 
+
+	LSB  shift 50
+	.  reduce 8 (src line 48)
+
+
+state 34
+	globvardecl:  SYNC IDENT.    (9)
+
+	.  reduce 9 (src line 54)
+
+
+state 35
+	proc:  PROCEDURE IDENT $$11.LPR argdecls RPR statements 
+
+	LPR  shift 51
+	.  error
+
+
+state 36
+	statements:  statement statements.    (20)
+
+	.  reduce 20 (src line 112)
+
+
+state 37
+	assign_statement:  IDENT PLUS.EQ tag $$32 expr 
+
+	EQ  shift 52
+	.  error
+
+
+state 38
+	assign_statement:  IDENT MINUS.EQ tag $$34 expr 
+
+	EQ  shift 53
+	.  error
+
+
+state 39
+	assign_statement:  IDENT XOR.EQ tag $$36 expr 
+
+	EQ  shift 54
+	.  error
+
+
+state 40
+	arrentry:  IDENT LSB.tag $$38 expr RSB 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 55
+
+state 41
+	arrassign_statement:  arrentry PLUS.EQ $$40 expr 
+
+	EQ  shift 56
+	.  error
+
+
+state 42
+	arrassign_statement:  arrentry MINUS.EQ $$42 expr 
+
+	EQ  shift 57
+	.  error
+
+
+state 43
+	arrassign_statement:  arrentry XOR.EQ $$44 expr 
+
+	EQ  shift 58
+	.  error
+
+
+state 44
+	if_statement:  IF lab.lab lab lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 59
+
+state 45
+	loop_statement:  FROM lab.lab lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 60
+
+state 46
+	call_statement:  CALL tag.$$69 proccalls 
+	$$69: .    (69)
+
+	.  reduce 69 (src line 433)
+
+	$$69  goto 61
+
+state 47
+	local_block:  LOCAL $$57.INT IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+
+	INT  shift 62
+	.  error
+
+
+state 48
+	v_statement:  ACQUIRE IDENT.    (67)
+
+	.  reduce 67 (src line 420)
+
+
+state 49
+	p_statement:  WAIT IDENT.    (68)
+
+	.  reduce 68 (src line 426)
+
+
+state 50
+	globvardecl:  INT IDENT LSB.variable RSB 
+
+	NUM  shift 64
+	IDENT  shift 65
+	.  error
+
+	variable  goto 63
+
+state 51
+	proc:  PROCEDURE IDENT $$11 LPR.argdecls RPR statements 
+	argdecls: .    (14)
+
+	INT  shift 68
+	SYNC  shift 69
+	.  reduce 14 (src line 87)
+
+	argdecls  goto 66
+	argdecl  goto 67
+
+state 52
+	assign_statement:  IDENT PLUS EQ.tag $$32 expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 70
+
+state 53
+	assign_statement:  IDENT MINUS EQ.tag $$34 expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 71
+
+state 54
+	assign_statement:  IDENT XOR EQ.tag $$36 expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 72
+
+state 55
+	arrentry:  IDENT LSB tag.$$38 expr RSB 
+	$$38: .    (38)
+
+	.  reduce 38 (src line 182)
+
+	$$38  goto 73
+
+state 56
+	arrassign_statement:  arrentry PLUS EQ.$$40 expr 
+	$$40: .    (40)
+
+	.  reduce 40 (src line 196)
+
+	$$40  goto 74
+
+state 57
+	arrassign_statement:  arrentry MINUS EQ.$$42 expr 
+	$$42: .    (42)
+
+	.  reduce 42 (src line 214)
+
+	$$42  goto 75
+
+state 58
+	arrassign_statement:  arrentry XOR EQ.$$44 expr 
+	$$44: .    (44)
+
+	.  reduce 44 (src line 232)
+
+	$$44  goto 76
+
+state 59
+	if_statement:  IF lab lab.lab lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 77
+
+state 60
+	loop_statement:  FROM lab lab.lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 78
+
+state 61
+	call_statement:  CALL tag $$69.proccalls 
+
+	IDENT  shift 81
+	.  error
+
+	proccalls  goto 79
+	proccall  goto 80
+
+state 62
+	local_block:  LOCAL $$57 INT.IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+
+	IDENT  shift 82
+	.  error
+
+
+state 63
+	globvardecl:  INT IDENT LSB variable.RSB 
+
+	RSB  shift 83
+	.  error
+
+
+state 64
+	variable:  NUM.    (100)
+
+	.  reduce 100 (src line 642)
+
+
+state 65
+	variable:  IDENT.    (101)
+	variable:  IDENT.LSB expr RSB 
+
+	LSB  shift 84
+	.  reduce 101 (src line 648)
+
+
+state 66
+	proc:  PROCEDURE IDENT $$11 LPR argdecls.RPR statements 
+
+	RPR  shift 85
+	.  error
+
+
+state 67
+	argdecls:  argdecl.argdeclmore 
+	argdeclmore: .    (16)
+
+	COMMA  shift 87
+	.  reduce 16 (src line 91)
+
+	argdeclmore  goto 86
+
+state 68
+	argdecl:  INT.IDENT 
+	argdecl:  INT.LSB RSB IDENT 
+
+	IDENT  shift 88
+	LSB  shift 89
+	.  error
+
+
+state 69
+	argdecl:  SYNC.IDENT 
+
+	IDENT  shift 90
+	.  error
+
+
+state 70
+	assign_statement:  IDENT PLUS EQ tag.$$32 expr 
+	$$32: .    (32)
+
+	.  reduce 32 (src line 127)
+
+	$$32  goto 91
+
+state 71
+	assign_statement:  IDENT MINUS EQ tag.$$34 expr 
+	$$34: .    (34)
+
+	.  reduce 34 (src line 145)
+
+	$$34  goto 92
+
+state 72
+	assign_statement:  IDENT XOR EQ tag.$$36 expr 
+	$$36: .    (36)
+
+	.  reduce 36 (src line 163)
+
+	$$36  goto 93
+
+state 73
+	arrentry:  IDENT LSB tag $$38.expr RSB 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 94
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 74
+	arrassign_statement:  arrentry PLUS EQ $$40.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 102
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 75
+	arrassign_statement:  arrentry MINUS EQ $$42.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 103
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 76
+	arrassign_statement:  arrentry XOR EQ $$44.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 104
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 77
+	if_statement:  IF lab lab lab.lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 105
+
+state 78
+	loop_statement:  FROM lab lab lab.lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 106
+
+state 79
+	call_statement:  CALL tag $$69 proccalls.    (70)
+
+	.  reduce 70 (src line 440)
+
+
+state 80
+	proccalls:  proccall.proccallmore 
+	proccallmore: .    (75)
+
+	COMMA  shift 108
+	.  reduce 75 (src line 476)
+
+	proccallmore  goto 107
+
+state 81
+	proccall:  IDENT.$$71 LPR args RPR 
+	$$71: .    (71)
+
+	.  reduce 71 (src line 458)
+
+	$$71  goto 109
+
+state 82
+	local_block:  LOCAL $$57 INT IDENT.EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+
+	EQ  shift 110
+	.  error
+
+
+state 83
+	globvardecl:  INT IDENT LSB variable RSB.    (10)
+
+	.  reduce 10 (src line 61)
+
+
+state 84
+	variable:  IDENT LSB.expr RSB 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 111
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 85
+	proc:  PROCEDURE IDENT $$11 LPR argdecls RPR.statements 
+	statements: .    (21)
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  reduce 21 (src line 113)
+
+	arrentry  goto 25
+	statements  goto 112
+	statement  goto 14
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 86
+	argdecls:  argdecl argdeclmore.    (13)
+
+	.  reduce 13 (src line 86)
+
+
+state 87
+	argdeclmore:  COMMA.argdecl argdeclmore 
+
+	INT  shift 68
+	SYNC  shift 69
+	.  error
+
+	argdecl  goto 113
+
+state 88
+	argdecl:  INT IDENT.    (17)
+
+	.  reduce 17 (src line 93)
+
+
+state 89
+	argdecl:  INT LSB.RSB IDENT 
+
+	RSB  shift 114
+	.  error
+
+
+state 90
+	argdecl:  SYNC IDENT.    (19)
+
+	.  reduce 19 (src line 105)
+
+
+state 91
+	assign_statement:  IDENT PLUS EQ tag $$32.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 115
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 92
+	assign_statement:  IDENT MINUS EQ tag $$34.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 116
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 93
+	assign_statement:  IDENT XOR EQ tag $$36.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 117
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 94
+	arrentry:  IDENT LSB tag $$38 expr.RSB 
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	RSB  shift 118
+	.  error
+
+
+state 95
+	expr:  expr2.    (77)
+	expr2:  expr2.AND expr3 
+
+	AND  shift 120
+	.  reduce 77 (src line 483)
+
+
+state 96
+	expr2:  expr3.    (79)
+	expr3:  expr3.LEQ expr4 
+	expr3:  expr3.GEQ expr4 
+	expr3:  expr3.EQ expr4 
+	expr3:  expr3.NEQ expr4 
+	expr3:  expr3.LES expr4 
+	expr3:  expr3.GRT expr4 
+
+	LEQ  shift 121
+	GEQ  shift 122
+	NEQ  shift 124
+	EQ  shift 123
+	LES  shift 125
+	GRT  shift 126
+	.  reduce 79 (src line 496)
+
+
+state 97
+	expr3:  expr4.    (81)
+	expr4:  expr4.PLUS expr5 
+	expr4:  expr4.MINUS expr5 
+	expr4:  expr4.BITOR expr5 
+	expr4:  expr4.XOR expr5 
+
+	PLUS  shift 127
+	MINUS  shift 128
+	XOR  shift 130
+	BITOR  shift 129
+	.  reduce 81 (src line 510)
+
+
+state 98
+	expr4:  expr5.    (88)
+	expr5:  expr5.MULT expr6 
+	expr5:  expr5.DIV expr6 
+	expr5:  expr5.MOD expr6 
+	expr5:  expr5.BITAND expr6 
+
+	MULT  shift 131
+	DIV  shift 132
+	MOD  shift 133
+	BITAND  shift 134
+	.  reduce 88 (src line 568)
+
+
+state 99
+	expr5:  expr6.    (93)
+
+	.  reduce 93 (src line 600)
+
+
+state 100
+	expr6:  variable.    (98)
+
+	.  reduce 98 (src line 633)
+
+
+state 101
+	expr6:  LPR.expr RPR 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 135
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 102
+	arrassign_statement:  arrentry PLUS EQ $$40 expr.    (41)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 41 (src line 202)
+
+
+state 103
+	arrassign_statement:  arrentry MINUS EQ $$42 expr.    (43)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 43 (src line 220)
+
+
+state 104
+	arrassign_statement:  arrentry XOR EQ $$44 expr.    (45)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 45 (src line 238)
+
+
+state 105
+	if_statement:  IF lab lab lab lab.tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 136
+
+state 106
+	loop_statement:  FROM lab lab lab lab.lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	lab: .    (51)
+
+	.  reduce 51 (src line 299)
+
+	lab  goto 137
+
+state 107
+	proccalls:  proccall proccallmore.    (73)
+
+	.  reduce 73 (src line 473)
+
+
+state 108
+	proccallmore:  COMMA.proccall proccallmore 
+
+	IDENT  shift 81
+	.  error
+
+	proccall  goto 138
+
+state 109
+	proccall:  IDENT $$71.LPR args RPR 
+
+	LPR  shift 139
+	.  error
+
+
+state 110
+	local_block:  LOCAL $$57 INT IDENT EQ.tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 140
+
+state 111
+	expr:  expr.OR expr2 
+	variable:  IDENT LSB expr.RSB 
+
+	OR  shift 119
+	RSB  shift 141
+	.  error
+
+
+state 112
+	proc:  PROCEDURE IDENT $$11 LPR argdecls RPR statements.    (12)
+
+	.  reduce 12 (src line 79)
+
+
+state 113
+	argdeclmore:  COMMA argdecl.argdeclmore 
+	argdeclmore: .    (16)
+
+	COMMA  shift 87
+	.  reduce 16 (src line 91)
+
+	argdeclmore  goto 142
+
+state 114
+	argdecl:  INT LSB RSB.IDENT 
+
+	IDENT  shift 143
+	.  error
+
+
+state 115
+	assign_statement:  IDENT PLUS EQ tag $$32 expr.    (33)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 33 (src line 133)
+
+
+state 116
+	assign_statement:  IDENT MINUS EQ tag $$34 expr.    (35)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 35 (src line 151)
+
+
+state 117
+	assign_statement:  IDENT XOR EQ tag $$36 expr.    (37)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 37 (src line 169)
+
+
+state 118
+	arrentry:  IDENT LSB tag $$38 expr RSB.    (39)
+
+	.  reduce 39 (src line 188)
+
+
+state 119
+	expr:  expr OR.expr2 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr2  goto 144
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 120
+	expr2:  expr2 AND.expr3 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr3  goto 145
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 121
+	expr3:  expr3 LEQ.expr4 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr4  goto 146
+	expr5  goto 98
+	expr6  goto 99
+
+state 122
+	expr3:  expr3 GEQ.expr4 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr4  goto 147
+	expr5  goto 98
+	expr6  goto 99
+
+state 123
+	expr3:  expr3 EQ.expr4 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr4  goto 148
+	expr5  goto 98
+	expr6  goto 99
+
+state 124
+	expr3:  expr3 NEQ.expr4 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr4  goto 149
+	expr5  goto 98
+	expr6  goto 99
+
+state 125
+	expr3:  expr3 LES.expr4 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr4  goto 150
+	expr5  goto 98
+	expr6  goto 99
+
+state 126
+	expr3:  expr3 GRT.expr4 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr4  goto 151
+	expr5  goto 98
+	expr6  goto 99
+
+state 127
+	expr4:  expr4 PLUS.expr5 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr5  goto 152
+	expr6  goto 99
+
+state 128
+	expr4:  expr4 MINUS.expr5 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr5  goto 153
+	expr6  goto 99
+
+state 129
+	expr4:  expr4 BITOR.expr5 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr5  goto 154
+	expr6  goto 99
+
+state 130
+	expr4:  expr4 XOR.expr5 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr5  goto 155
+	expr6  goto 99
+
+state 131
+	expr5:  expr5 MULT.expr6 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr6  goto 156
+
+state 132
+	expr5:  expr5 DIV.expr6 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr6  goto 157
+
+state 133
+	expr5:  expr5 MOD.expr6 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr6  goto 158
+
+state 134
+	expr5:  expr5 BITAND.expr6 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr6  goto 159
+
+state 135
+	expr:  expr.OR expr2 
+	expr6:  LPR expr.RPR 
+
+	OR  shift 119
+	RPR  shift 160
+	.  error
+
+
+state 136
+	if_statement:  IF lab lab lab lab tag.tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 161
+
+state 137
+	loop_statement:  FROM lab lab lab lab lab.tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 162
+
+state 138
+	proccallmore:  COMMA proccall.proccallmore 
+	proccallmore: .    (75)
+
+	COMMA  shift 108
+	.  reduce 75 (src line 476)
+
+	proccallmore  goto 163
+
+state 139
+	proccall:  IDENT $$71 LPR.args RPR 
+	args: .    (63)
+
+	IDENT  shift 166
+	.  reduce 63 (src line 403)
+
+	args  goto 164
+	arg  goto 165
+
+state 140
+	local_block:  LOCAL $$57 INT IDENT EQ tag.tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 167
+
+state 141
+	variable:  IDENT LSB expr RSB.    (102)
+
+	.  reduce 102 (src line 659)
+
+
+state 142
+	argdeclmore:  COMMA argdecl argdeclmore.    (15)
+
+	.  reduce 15 (src line 90)
+
+
+state 143
+	argdecl:  INT LSB RSB IDENT.    (18)
+
+	.  reduce 18 (src line 99)
+
+
+state 144
+	expr:  expr OR expr2.    (78)
+	expr2:  expr2.AND expr3 
+
+	AND  shift 120
+	.  reduce 78 (src line 487)
+
+
+state 145
+	expr2:  expr2 AND expr3.    (80)
+	expr3:  expr3.LEQ expr4 
+	expr3:  expr3.GEQ expr4 
+	expr3:  expr3.EQ expr4 
+	expr3:  expr3.NEQ expr4 
+	expr3:  expr3.LES expr4 
+	expr3:  expr3.GRT expr4 
+
+	LEQ  shift 121
+	GEQ  shift 122
+	NEQ  shift 124
+	EQ  shift 123
+	LES  shift 125
+	GRT  shift 126
+	.  reduce 80 (src line 500)
+
+
+state 146
+	expr3:  expr3 LEQ expr4.    (82)
+	expr4:  expr4.PLUS expr5 
+	expr4:  expr4.MINUS expr5 
+	expr4:  expr4.BITOR expr5 
+	expr4:  expr4.XOR expr5 
+
+	PLUS  shift 127
+	MINUS  shift 128
+	XOR  shift 130
+	BITOR  shift 129
+	.  reduce 82 (src line 514)
+
+
+state 147
+	expr3:  expr3 GEQ expr4.    (83)
+	expr4:  expr4.PLUS expr5 
+	expr4:  expr4.MINUS expr5 
+	expr4:  expr4.BITOR expr5 
+	expr4:  expr4.XOR expr5 
+
+	PLUS  shift 127
+	MINUS  shift 128
+	XOR  shift 130
+	BITOR  shift 129
+	.  reduce 83 (src line 523)
+
+
+state 148
+	expr3:  expr3 EQ expr4.    (84)
+	expr4:  expr4.PLUS expr5 
+	expr4:  expr4.MINUS expr5 
+	expr4:  expr4.BITOR expr5 
+	expr4:  expr4.XOR expr5 
+
+	PLUS  shift 127
+	MINUS  shift 128
+	XOR  shift 130
+	BITOR  shift 129
+	.  reduce 84 (src line 532)
+
+
+state 149
+	expr3:  expr3 NEQ expr4.    (85)
+	expr4:  expr4.PLUS expr5 
+	expr4:  expr4.MINUS expr5 
+	expr4:  expr4.BITOR expr5 
+	expr4:  expr4.XOR expr5 
+
+	PLUS  shift 127
+	MINUS  shift 128
+	XOR  shift 130
+	BITOR  shift 129
+	.  reduce 85 (src line 541)
+
+
+state 150
+	expr3:  expr3 LES expr4.    (86)
+	expr4:  expr4.PLUS expr5 
+	expr4:  expr4.MINUS expr5 
+	expr4:  expr4.BITOR expr5 
+	expr4:  expr4.XOR expr5 
+
+	PLUS  shift 127
+	MINUS  shift 128
+	XOR  shift 130
+	BITOR  shift 129
+	.  reduce 86 (src line 550)
+
+
+state 151
+	expr3:  expr3 GRT expr4.    (87)
+	expr4:  expr4.PLUS expr5 
+	expr4:  expr4.MINUS expr5 
+	expr4:  expr4.BITOR expr5 
+	expr4:  expr4.XOR expr5 
+
+	PLUS  shift 127
+	MINUS  shift 128
+	XOR  shift 130
+	BITOR  shift 129
+	.  reduce 87 (src line 559)
+
+
+state 152
+	expr4:  expr4 PLUS expr5.    (89)
+	expr5:  expr5.MULT expr6 
+	expr5:  expr5.DIV expr6 
+	expr5:  expr5.MOD expr6 
+	expr5:  expr5.BITAND expr6 
+
+	MULT  shift 131
+	DIV  shift 132
+	MOD  shift 133
+	BITAND  shift 134
+	.  reduce 89 (src line 572)
+
+
+state 153
+	expr4:  expr4 MINUS expr5.    (90)
+	expr5:  expr5.MULT expr6 
+	expr5:  expr5.DIV expr6 
+	expr5:  expr5.MOD expr6 
+	expr5:  expr5.BITAND expr6 
+
+	MULT  shift 131
+	DIV  shift 132
+	MOD  shift 133
+	BITAND  shift 134
+	.  reduce 90 (src line 581)
+
+
+state 154
+	expr4:  expr4 BITOR expr5.    (91)
+	expr5:  expr5.MULT expr6 
+	expr5:  expr5.DIV expr6 
+	expr5:  expr5.MOD expr6 
+	expr5:  expr5.BITAND expr6 
+
+	MULT  shift 131
+	DIV  shift 132
+	MOD  shift 133
+	BITAND  shift 134
+	.  reduce 91 (src line 590)
+
+
+state 155
+	expr4:  expr4 XOR expr5.    (92)
+	expr5:  expr5.MULT expr6 
+	expr5:  expr5.DIV expr6 
+	expr5:  expr5.MOD expr6 
+	expr5:  expr5.BITAND expr6 
+
+	MULT  shift 131
+	DIV  shift 132
+	MOD  shift 133
+	BITAND  shift 134
+	.  reduce 92 (src line 591)
+
+
+state 156
+	expr5:  expr5 MULT expr6.    (94)
+
+	.  reduce 94 (src line 604)
+
+
+state 157
+	expr5:  expr5 DIV expr6.    (95)
+
+	.  reduce 95 (src line 613)
+
+
+state 158
+	expr5:  expr5 MOD expr6.    (96)
+
+	.  reduce 96 (src line 622)
+
+
+state 159
+	expr5:  expr5 BITAND expr6.    (97)
+
+	.  reduce 97 (src line 631)
+
+
+state 160
+	expr6:  LPR expr RPR.    (99)
+
+	.  reduce 99 (src line 637)
+
+
+state 161
+	if_statement:  IF lab lab lab lab tag tag.$$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+	$$46: .    (46)
+
+	.  reduce 46 (src line 251)
+
+	$$46  goto 168
+
+state 162
+	loop_statement:  FROM lab lab lab lab lab tag.tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	tag: .    (76)
+
+	.  reduce 76 (src line 478)
+
+	tag  goto 169
+
+state 163
+	proccallmore:  COMMA proccall proccallmore.    (74)
+
+	.  reduce 74 (src line 475)
+
+
+state 164
+	proccall:  IDENT $$71 LPR args.RPR 
+
+	RPR  shift 170
+	.  error
+
+
+state 165
+	args:  arg.argmore 
+	argmore: .    (65)
+
+	COMMA  shift 172
+	.  reduce 65 (src line 407)
+
+	argmore  goto 171
+
+state 166
+	arg:  IDENT.    (66)
+
+	.  reduce 66 (src line 409)
+
+
+state 167
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag.$$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+	$$58: .    (58)
+
+	.  reduce 58 (src line 364)
+
+	$$58  goto 173
+
+state 168
+	if_statement:  IF lab lab lab lab tag tag $$46.expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 174
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 169
+	loop_statement:  FROM lab lab lab lab lab tag tag.$$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	$$52: .    (52)
+
+	.  reduce 52 (src line 306)
+
+	$$52  goto 175
+
+state 170
+	proccall:  IDENT $$71 LPR args RPR.    (72)
+
+	.  reduce 72 (src line 466)
+
+
+state 171
+	args:  arg argmore.    (62)
+
+	.  reduce 62 (src line 402)
+
+
+state 172
+	argmore:  COMMA.arg argmore 
+
+	IDENT  shift 166
+	.  error
+
+	arg  goto 176
+
+state 173
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58.expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 177
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 174
+	if_statement:  IF lab lab lab lab tag tag $$46 expr.$$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+	expr:  expr.OR expr2 
+	$$47: .    (47)
+
+	OR  shift 119
+	.  reduce 47 (src line 257)
+
+	$$47  goto 178
+
+state 175
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52.expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 179
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 176
+	argmore:  COMMA arg.argmore 
+	argmore: .    (65)
+
+	COMMA  shift 172
+	.  reduce 65 (src line 407)
+
+	argmore  goto 180
+
+state 177
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr.$$59 statements_plus DELOCAL INT IDENT EQ $$60 expr 
+	expr:  expr.OR expr2 
+	$$59: .    (59)
+
+	OR  shift 119
+	.  reduce 59 (src line 371)
+
+	$$59  goto 181
+
+state 178
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47.THEN statements_plus $$48 ELSE statements_plus $$49 FI expr 
+
+	THEN  shift 182
+	.  error
+
+
+state 179
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr.$$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+	expr:  expr.OR expr2 
+	$$53: .    (53)
+
+	OR  shift 119
+	.  reduce 53 (src line 312)
+
+	$$53  goto 183
+
+state 180
+	argmore:  COMMA arg argmore.    (64)
+
+	.  reduce 64 (src line 406)
+
+
+state 181
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr $$59.statements_plus DELOCAL INT IDENT EQ $$60 expr 
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  error
+
+	arrentry  goto 25
+	statement  goto 185
+	statements_plus  goto 184
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 182
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47 THEN.statements_plus $$48 ELSE statements_plus $$49 FI expr 
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  error
+
+	arrentry  goto 25
+	statement  goto 185
+	statements_plus  goto 186
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 183
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53.DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+
+	DO  shift 187
+	.  error
+
+
+state 184
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr $$59 statements_plus.DELOCAL INT IDENT EQ $$60 expr 
+
+	DELOCAL  shift 188
+	.  error
+
+
+state 185
+	statements_plus:  statement.statements 
+	statements: .    (21)
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  reduce 21 (src line 113)
+
+	arrentry  goto 25
+	statements  goto 189
+	statement  goto 14
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 186
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47 THEN statements_plus.$$48 ELSE statements_plus $$49 FI expr 
+	$$48: .    (48)
+
+	.  reduce 48 (src line 269)
+
+	$$48  goto 190
+
+state 187
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53 DO.statements_plus $$54 LOOP statements_plus UNTIL $$55 expr 
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  error
+
+	arrentry  goto 25
+	statement  goto 185
+	statements_plus  goto 191
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 188
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL.INT IDENT EQ $$60 expr 
+
+	INT  shift 192
+	.  error
+
+
+state 189
+	statements_plus:  statement statements.    (22)
+
+	.  reduce 22 (src line 115)
+
+
+state 190
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47 THEN statements_plus $$48.ELSE statements_plus $$49 FI expr 
+
+	ELSE  shift 193
+	.  error
+
+
+state 191
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53 DO statements_plus.$$54 LOOP statements_plus UNTIL $$55 expr 
+	$$54: .    (54)
+
+	.  reduce 54 (src line 324)
+
+	$$54  goto 194
+
+state 192
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT.IDENT EQ $$60 expr 
+
+	IDENT  shift 195
+	.  error
+
+
+state 193
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE.statements_plus $$49 FI expr 
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  error
+
+	arrentry  goto 25
+	statement  goto 185
+	statements_plus  goto 196
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 194
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54.LOOP statements_plus UNTIL $$55 expr 
+
+	LOOP  shift 197
+	.  error
+
+
+state 195
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT.EQ $$60 expr 
+
+	EQ  shift 198
+	.  error
+
+
+state 196
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus.$$49 FI expr 
+	$$49: .    (49)
+
+	.  reduce 49 (src line 280)
+
+	$$49  goto 199
+
+state 197
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP.statements_plus UNTIL $$55 expr 
+
+	IDENT  shift 24
+	IF  shift 26
+	FROM  shift 27
+	LOCAL  shift 29
+	CALL  shift 28
+	SKIP  shift 20
+	WAIT  shift 31
+	ACQUIRE  shift 30
+	.  error
+
+	arrentry  goto 25
+	statement  goto 185
+	statements_plus  goto 200
+	assign_statement  goto 15
+	arrassign_statement  goto 16
+	if_statement  goto 17
+	loop_statement  goto 18
+	call_statement  goto 19
+	local_block  goto 21
+	v_statement  goto 22
+	p_statement  goto 23
+
+state 198
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ.$$60 expr 
+	$$60: .    (60)
+
+	.  reduce 60 (src line 382)
+
+	$$60  goto 201
+
+state 199
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49.FI expr 
+
+	FI  shift 202
+	.  error
+
+
+state 200
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus.UNTIL $$55 expr 
+
+	UNTIL  shift 203
+	.  error
+
+
+state 201
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 204
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 202
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 205
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 203
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL.$$55 expr 
+	$$55: .    (55)
+
+	.  reduce 55 (src line 333)
+
+	$$55  goto 206
+
+state 204
+	local_block:  LOCAL $$57 INT IDENT EQ tag tag $$58 expr $$59 statements_plus DELOCAL INT IDENT EQ $$60 expr.    (61)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 61 (src line 388)
+
+
+state 205
+	if_statement:  IF lab lab lab lab tag tag $$46 expr $$47 THEN statements_plus $$48 ELSE statements_plus $$49 FI expr.    (50)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 50 (src line 289)
+
+
+state 206
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55.expr 
+
+	NUM  shift 64
+	IDENT  shift 65
+	LPR  shift 101
+	.  error
+
+	variable  goto 100
+	expr  goto 207
+	expr2  goto 95
+	expr3  goto 96
+	expr4  goto 97
+	expr5  goto 98
+	expr6  goto 99
+
+state 207
+	loop_statement:  FROM lab lab lab lab lab tag tag $$52 expr $$53 DO statements_plus $$54 LOOP statements_plus UNTIL $$55 expr.    (56)
+	expr:  expr.OR expr2 
+
+	OR  shift 119
+	.  reduce 56 (src line 343)
+
+
+51 terminals, 60 nonterminals
+103 grammar rules, 208/16000 states
+0 shift/reduce, 0 reduce/reduce conflicts reported
+109 working sets used
+memory: parser 344/240000
+167 extra closures
+310 shift entries, 1 exceptions
+127 goto entries
+201 entries saved by goto default
+Optimizer space used: output 215/240000
+215 table entries, 0 zero
+maximum spread: 51, maximum offset: 206
