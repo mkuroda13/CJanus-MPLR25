@@ -130,7 +130,7 @@ const parserEofCode = 1
 const parserErrCode = 2
 const parserInitialStackSize = 16
 
-//line parser.y:670
+//line parser.y:673
 
 //line yacctab:1
 var parserExca = [...]int8{
@@ -141,64 +141,64 @@ var parserExca = [...]int8{
 
 const parserPrivate = 57344
 
-const parserLast = 215
+const parserLast = 214
 
 var parserAct = [...]uint8{
-	94, 184, 185, 171, 13, 165, 99, 46, 107, 97,
-	14, 86, 80, 67, 68, 9, 96, 14, 100, 36,
-	24, 98, 95, 188, 203, 197, 187, 202, 193, 182,
-	192, 62, 69, 10, 119, 6, 44, 170, 85, 139,
-	64, 65, 198, 51, 172, 108, 87, 26, 55, 160,
-	114, 27, 37, 38, 39, 29, 83, 28, 110, 20,
-	70, 71, 72, 101, 45, 31, 30, 88, 40, 63,
-	119, 84, 50, 119, 58, 102, 103, 104, 57, 119,
-	141, 59, 60, 118, 89, 111, 56, 54, 14, 53,
-	112, 52, 115, 116, 117, 120, 77, 78, 41, 42,
-	43, 113, 135, 121, 122, 124, 123, 125, 126, 109,
-	127, 128, 130, 136, 105, 106, 195, 7, 140, 129,
-	166, 138, 131, 132, 133, 142, 32, 134, 64, 65,
-	143, 146, 147, 148, 149, 150, 151, 145, 156, 157,
-	158, 159, 144, 137, 161, 162, 81, 163, 167, 152,
-	153, 154, 155, 4, 90, 82, 49, 48, 34, 11,
-	33, 12, 79, 61, 164, 201, 181, 173, 47, 174,
-	169, 206, 194, 183, 177, 175, 179, 199, 176, 190,
-	180, 178, 168, 76, 186, 75, 74, 73, 14, 191,
-	189, 93, 92, 91, 23, 196, 22, 21, 19, 200,
-	18, 17, 204, 205, 16, 15, 66, 207, 35, 8,
-	3, 5, 2, 1, 25,
+	92, 185, 186, 172, 13, 165, 47, 107, 97, 95,
+	14, 84, 79, 66, 67, 9, 189, 14, 94, 37,
+	24, 96, 194, 188, 204, 198, 93, 203, 183, 193,
+	63, 118, 68, 10, 6, 100, 101, 171, 83, 139,
+	52, 199, 173, 108, 113, 85, 159, 26, 56, 45,
+	64, 27, 135, 118, 118, 29, 110, 28, 99, 20,
+	69, 70, 71, 168, 117, 31, 30, 120, 121, 123,
+	122, 124, 125, 59, 102, 103, 104, 46, 38, 39,
+	40, 86, 58, 57, 33, 55, 14, 54, 111, 53,
+	114, 115, 116, 118, 41, 60, 61, 119, 87, 112,
+	134, 34, 196, 51, 126, 127, 129, 42, 43, 44,
+	76, 77, 136, 128, 130, 131, 132, 140, 166, 133,
+	7, 138, 4, 142, 141, 80, 105, 106, 11, 32,
+	145, 146, 147, 148, 149, 150, 160, 88, 144, 155,
+	156, 157, 158, 161, 162, 143, 163, 167, 151, 152,
+	153, 154, 82, 81, 50, 49, 137, 35, 12, 109,
+	78, 62, 164, 202, 182, 174, 48, 207, 195, 170,
+	175, 184, 176, 200, 191, 178, 179, 180, 169, 177,
+	75, 181, 74, 73, 72, 187, 91, 90, 89, 14,
+	192, 190, 23, 22, 21, 19, 197, 18, 17, 16,
+	201, 15, 65, 205, 206, 36, 8, 3, 208, 5,
+	2, 1, 25, 98,
 }
 
 var parserPact = [...]int16{
-	-1000, -1000, 6, -16, -1000, 6, 156, 15, -16, 155,
-	153, -1000, -1000, -1000, 15, -1000, -1000, -1000, -1000, -1000,
-	-1000, -1000, -1000, -1000, 46, 92, -1000, -1000, -1000, -1000,
-	152, 151, -1000, 50, -1000, 16, -1000, 72, 70, 68,
-	-1000, 67, 59, 55, -1000, -1000, -1000, 0, -1000, -1000,
-	124, -17, -1000, -1000, -1000, -1000, -1000, -1000, -1000, -1000,
-	-1000, 141, 150, 33, -1000, 49, 10, 20, 62, 149,
-	-1000, -1000, -1000, 36, 36, 36, 36, -1000, -1000, -1000,
-	19, -1000, 39, -1000, 36, 15, -1000, -17, -1000, 27,
-	-1000, 36, 36, 36, 60, 83, 87, 104, 113, -1000,
-	-1000, 36, 66, 66, 66, -1000, -1000, -1000, 141, 12,
-	-1000, 57, -1000, 20, 125, 66, 66, 66, -1000, 36,
-	36, 36, 36, 36, 36, 36, 36, 36, 36, 36,
-	36, 36, 36, 36, 36, 21, -1000, -1000, 19, 115,
-	-1000, -1000, -1000, -1000, 83, 87, 104, 104, 104, 104,
-	104, 104, 113, 113, 113, 113, -1000, -1000, -1000, -1000,
-	-1000, -1000, -1000, -1000, 9, 18, -1000, -1000, 36, -1000,
-	-1000, -1000, 115, 36, 66, 36, 18, 66, -4, 66,
-	-1000, 15, 15, -11, -18, 15, -1000, 15, -1, -1000,
-	-6, -1000, 111, 15, -13, 23, -1000, 15, -1000, -8,
-	-15, 36, 36, -1000, 66, 66, 36, 66,
+	-1000, -1000, 5, -16, -1000, 5, 153, 15, -16, 79,
+	152, -1000, -1000, -1000, 15, -1000, -1000, -1000, -1000, -1000,
+	-1000, -1000, -1000, -1000, 72, 101, -1000, -1000, -1000, -1000,
+	150, 149, -1000, -1000, 99, -1000, 13, -1000, 70, 68,
+	66, -1000, 64, 63, 54, -1000, -1000, -1000, -1, -1000,
+	-1000, 27, -17, -1000, -1000, -1000, -1000, -1000, -1000, -1000,
+	-1000, -1000, 120, 148, 147, 10, 19, 76, 132, -1000,
+	-1000, -1000, 31, 31, 31, 31, -1000, -1000, -1000, 17,
+	-1000, 37, -1000, 15, -1000, -17, -1000, 21, -1000, 31,
+	31, 31, 41, 85, 51, 98, 105, -1000, -1000, 31,
+	-1000, 30, 80, 80, 80, -1000, -1000, -1000, 120, 12,
+	-1000, -1000, 19, 118, 80, 80, 80, -1000, 31, 31,
+	31, 31, 31, 31, 31, 31, 31, 31, 31, 31,
+	31, 31, 31, 31, 18, 31, -1000, -1000, 17, 113,
+	-1000, -1000, -1000, 85, 51, 98, 98, 98, 98, 98,
+	98, 105, 105, 105, 105, -1000, -1000, -1000, -1000, -1000,
+	40, -1000, -1000, -1000, 9, 16, -1000, -1000, -1000, 31,
+	-1000, -1000, -1000, 113, 31, 80, 31, 16, 80, -5,
+	80, -1000, 15, 15, -14, -25, 15, -1000, 15, -2,
+	-1000, -12, -1000, 97, 15, -13, 22, -1000, 15, -1000,
+	-8, -15, 31, 31, -1000, 80, 80, 31, 80,
 }
 
 var parserPgo = [...]uint8{
-	0, 18, 0, 22, 16, 9, 21, 6, 36, 214,
-	7, 213, 212, 153, 211, 210, 117, 4, 209, 208,
-	206, 13, 11, 2, 1, 205, 204, 201, 200, 198,
-	197, 196, 194, 193, 192, 191, 187, 186, 185, 183,
-	182, 181, 179, 177, 175, 173, 172, 171, 168, 167,
-	166, 165, 164, 5, 3, 163, 162, 12, 109, 8,
+	0, 213, 0, 26, 18, 9, 21, 8, 49, 212,
+	6, 211, 210, 122, 209, 207, 120, 4, 206, 205,
+	202, 13, 11, 2, 1, 201, 199, 198, 197, 195,
+	194, 193, 192, 188, 187, 186, 184, 183, 182, 180,
+	178, 176, 174, 173, 172, 171, 168, 167, 166, 165,
+	164, 163, 162, 5, 3, 161, 160, 12, 159, 7,
 }
 
 var parserR1 = [...]int8{
@@ -233,48 +233,48 @@ var parserChk = [...]int16{
 	-1000, -11, -12, -15, -13, -14, 29, -16, -18, 31,
 	49, -13, 5, -17, -23, -25, -26, -27, -28, -29,
 	44, -30, -31, -32, 5, -9, 32, 36, 42, 40,
-	51, 50, -16, 5, 5, -19, -17, 6, 7, 8,
-	22, 6, 7, 8, -8, -8, -10, -48, 5, 5,
-	22, 27, 19, 19, 19, -10, 19, 19, 19, -8,
-	-8, -55, 31, -1, 4, 5, -20, -21, 31, 49,
-	-10, -10, -10, -36, -37, -38, -39, -8, -8, -56,
-	-57, 5, 5, 23, 22, 28, -22, 26, 5, 22,
-	5, -33, -34, -35, -2, -3, -4, -5, -6, -7,
-	-1, 27, -2, -2, -2, -8, -8, -59, 26, -58,
-	19, -2, -17, -21, 23, -2, -2, -2, 23, 13,
-	12, 16, 17, 19, 18, 20, 21, 6, 7, 15,
-	8, 9, 10, 11, 14, -2, -10, -8, -57, 27,
-	-10, 23, -22, 5, -3, -4, -5, -5, -5, -5,
-	-5, -5, -6, -6, -6, -6, -7, -7, -7, -7,
-	28, -10, -10, -59, -52, -53, 5, -10, -40, -10,
-	28, -54, 26, -49, -2, -44, -53, -2, -41, -2,
-	-54, -50, 33, -45, -24, -23, -24, 37, 41, -17,
-	-42, -24, 31, 34, -46, 5, -24, 38, 19, -43,
-	-24, -51, 35, 39, -2, -2, -47, -2,
+	51, 50, -16, 5, 22, 5, -19, -17, 6, 7,
+	8, 22, 6, 7, 8, -8, -8, -10, -48, 5,
+	5, 4, 27, 19, 19, 19, -10, 19, 19, 19,
+	-8, -8, -55, 31, 23, -20, -21, 31, 49, -10,
+	-10, -10, -36, -37, -38, -39, -8, -8, -56, -57,
+	5, 5, 5, 28, -22, 26, 5, 22, 5, -33,
+	-34, -35, -2, -3, -4, -5, -6, -7, -1, 27,
+	4, 5, -2, -2, -2, -8, -8, -59, 26, -58,
+	19, -17, -21, 23, -2, -2, -2, 23, 13, 12,
+	16, 17, 19, 18, 20, 21, 6, 7, 15, 8,
+	9, 10, 11, 14, -2, 22, -10, -8, -57, 27,
+	-10, -22, 5, -3, -4, -5, -5, -5, -5, -5,
+	-5, -6, -6, -6, -6, -7, -7, -7, -7, 28,
+	-2, -10, -10, -59, -52, -53, 5, -10, 23, -40,
+	-10, 28, -54, 26, -49, -2, -44, -53, -2, -41,
+	-2, -54, -50, 33, -45, -24, -23, -24, 37, 41,
+	-17, -42, -24, 31, 34, -46, 5, -24, 38, 19,
+	-43, -24, -51, 35, 39, -2, -2, -47, -2,
 }
 
 var parserDef = [...]int8{
 	4, -2, 3, 7, 1, 3, 0, 21, 7, 0,
 	0, 2, 11, 5, 21, 23, 24, 25, 26, 27,
 	28, 29, 30, 31, 0, 0, 51, 51, 76, 57,
-	0, 0, 6, 8, 9, 0, 20, 0, 0, 0,
-	76, 0, 0, 0, 51, 51, 69, 0, 67, 68,
-	0, 14, 76, 76, 76, 38, 40, 42, 44, 51,
-	51, 0, 0, 0, 100, 101, 0, 16, 0, 0,
-	32, 34, 36, 0, 0, 0, 0, 51, 51, 70,
-	75, 71, 0, 10, 0, 21, 13, 0, 17, 0,
-	19, 0, 0, 0, 0, 77, 79, 81, 88, 93,
-	98, 0, 41, 43, 45, 76, 51, 73, 0, 0,
-	76, 0, 12, 16, 0, 33, 35, 37, 39, 0,
+	0, 0, 6, 8, 0, 9, 0, 20, 0, 0,
+	0, 76, 0, 0, 0, 51, 51, 69, 0, 67,
+	68, 0, 14, 76, 76, 76, 38, 40, 42, 44,
+	51, 51, 0, 0, 0, 0, 16, 0, 0, 32,
+	34, 36, 0, 0, 0, 0, 51, 51, 70, 75,
+	71, 0, 10, 21, 13, 0, 17, 0, 19, 0,
+	0, 0, 0, 77, 79, 81, 88, 93, 98, 0,
+	100, 101, 41, 43, 45, 76, 51, 73, 0, 0,
+	76, 12, 16, 0, 33, 35, 37, 39, 0, 0,
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	0, 0, 0, 0, 0, 0, 76, 76, 75, 63,
-	76, 102, 15, 18, 78, 80, 82, 83, 84, 85,
-	86, 87, 89, 90, 91, 92, 94, 95, 96, 97,
-	99, 46, 76, 74, 0, 65, 66, 58, 0, 52,
-	72, 62, 0, 0, 47, 0, 65, 59, 0, 53,
-	64, 0, 0, 0, 0, 21, 48, 0, 0, 22,
-	0, 54, 0, 0, 0, 0, 49, 0, 60, 0,
-	0, 0, 0, 55, 61, 50, 0, 56,
+	76, 15, 18, 78, 80, 82, 83, 84, 85, 86,
+	87, 89, 90, 91, 92, 94, 95, 96, 97, 99,
+	0, 46, 76, 74, 0, 65, 66, 58, 102, 0,
+	52, 72, 62, 0, 0, 47, 0, 65, 59, 0,
+	53, 64, 0, 0, 0, 0, 21, 48, 0, 0,
+	22, 0, 54, 0, 0, 0, 0, 49, 0, 60,
+	0, 0, 0, 0, 55, 61, 50, 0, 56,
 }
 
 var parserTok1 = [...]int8{
@@ -669,14 +669,13 @@ parserdefault:
 //line parser.y:62
 		{
 			if !prep {
-				cmp.registerGlobal(parserDollar[2].ident, T_INTA)
-				size, _ := strconv.Atoi(parserDollar[4].varid)
-				cmp.exec("set #" + parserDollar[2].ident + " " + cmp.getMem(size))
+				cmp.registerGlobal(parserDollar[5].ident, T_INTA)
+				cmp.exec("set #" + parserDollar[5].ident + " " + cmp.getMem(parserDollar[3].num))
 			}
 		}
 	case 11:
 		parserDollar = parserS[parserpt-2 : parserpt+1]
-//line parser.y:71
+//line parser.y:70
 		{
 			if prep {
 				cmp.declpname = parserDollar[2].ident
@@ -687,7 +686,7 @@ parserdefault:
 		}
 	case 12:
 		parserDollar = parserS[parserpt-7 : parserpt+1]
-//line parser.y:80
+//line parser.y:79
 		{
 			if !prep {
 				cmp.exec("end " + parserDollar[2].ident)
@@ -695,7 +694,7 @@ parserdefault:
 		}
 	case 17:
 		parserDollar = parserS[parserpt-2 : parserpt+1]
-//line parser.y:94
+//line parser.y:93
 		{
 			if prep {
 				cmp.registerDecl(parserDollar[2].ident, T_INT)
@@ -703,7 +702,7 @@ parserdefault:
 		}
 	case 18:
 		parserDollar = parserS[parserpt-4 : parserpt+1]
-//line parser.y:100
+//line parser.y:99
 		{
 			if prep {
 				cmp.registerDecl(parserDollar[4].ident, T_INTA)
@@ -711,7 +710,7 @@ parserdefault:
 		}
 	case 19:
 		parserDollar = parserS[parserpt-2 : parserpt+1]
-//line parser.y:106
+//line parser.y:105
 		{
 			if prep {
 				cmp.registerDecl(parserDollar[2].ident, T_SYNC)
@@ -719,7 +718,7 @@ parserdefault:
 		}
 	case 32:
 		parserDollar = parserS[parserpt-4 : parserpt+1]
-//line parser.y:128
+//line parser.y:127
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[4].tag)
@@ -727,7 +726,7 @@ parserdefault:
 		}
 	case 33:
 		parserDollar = parserS[parserpt-6 : parserpt+1]
-//line parser.y:134
+//line parser.y:133
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[4].tag)
@@ -741,7 +740,7 @@ parserdefault:
 		}
 	case 34:
 		parserDollar = parserS[parserpt-4 : parserpt+1]
-//line parser.y:146
+//line parser.y:145
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[4].tag)
@@ -749,7 +748,7 @@ parserdefault:
 		}
 	case 35:
 		parserDollar = parserS[parserpt-6 : parserpt+1]
-//line parser.y:152
+//line parser.y:151
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[4].tag)
@@ -763,7 +762,7 @@ parserdefault:
 		}
 	case 36:
 		parserDollar = parserS[parserpt-4 : parserpt+1]
-//line parser.y:164
+//line parser.y:163
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[4].tag)
@@ -771,7 +770,7 @@ parserdefault:
 		}
 	case 37:
 		parserDollar = parserS[parserpt-6 : parserpt+1]
-//line parser.y:170
+//line parser.y:169
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[4].tag)
@@ -785,7 +784,7 @@ parserdefault:
 		}
 	case 38:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:183
+//line parser.y:182
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[3].tag)
@@ -793,7 +792,7 @@ parserdefault:
 		}
 	case 39:
 		parserDollar = parserS[parserpt-6 : parserpt+1]
-//line parser.y:189
+//line parser.y:188
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[3].tag)
@@ -802,7 +801,7 @@ parserdefault:
 		}
 	case 40:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:197
+//line parser.y:196
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[1].arrentry.tag)
@@ -810,7 +809,7 @@ parserdefault:
 		}
 	case 41:
 		parserDollar = parserS[parserpt-5 : parserpt+1]
-//line parser.y:203
+//line parser.y:202
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[1].arrentry.tag)
@@ -824,7 +823,7 @@ parserdefault:
 		}
 	case 42:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:215
+//line parser.y:214
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[1].arrentry.tag)
@@ -832,7 +831,7 @@ parserdefault:
 		}
 	case 43:
 		parserDollar = parserS[parserpt-5 : parserpt+1]
-//line parser.y:221
+//line parser.y:220
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[1].arrentry.tag)
@@ -846,7 +845,7 @@ parserdefault:
 		}
 	case 44:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:233
+//line parser.y:232
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[1].arrentry.tag)
@@ -854,7 +853,7 @@ parserdefault:
 		}
 	case 45:
 		parserDollar = parserS[parserpt-5 : parserpt+1]
-//line parser.y:239
+//line parser.y:238
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[1].arrentry.tag)
@@ -868,7 +867,7 @@ parserdefault:
 		}
 	case 46:
 		parserDollar = parserS[parserpt-7 : parserpt+1]
-//line parser.y:252
+//line parser.y:251
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[6].tag)
@@ -876,7 +875,7 @@ parserdefault:
 		}
 	case 47:
 		parserDollar = parserS[parserpt-9 : parserpt+1]
-//line parser.y:258
+//line parser.y:257
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[6].tag)
@@ -890,7 +889,7 @@ parserdefault:
 		}
 	case 48:
 		parserDollar = parserS[parserpt-12 : parserpt+1]
-//line parser.y:270
+//line parser.y:269
 		{
 			if !prep {
 				cmp.lockrecord(parserDollar[7].tag)
@@ -903,7 +902,7 @@ parserdefault:
 		}
 	case 49:
 		parserDollar = parserS[parserpt-15 : parserpt+1]
-//line parser.y:281
+//line parser.y:280
 		{
 			if !prep {
 				cmp.lockrecord(parserDollar[7].tag)
@@ -914,7 +913,7 @@ parserdefault:
 		}
 	case 50:
 		parserDollar = parserS[parserpt-18 : parserpt+1]
-//line parser.y:290
+//line parser.y:289
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[7].tag)
@@ -925,7 +924,7 @@ parserdefault:
 		}
 	case 51:
 		parserDollar = parserS[parserpt-0 : parserpt+1]
-//line parser.y:300
+//line parser.y:299
 		{
 			if !prep {
 				parserVAL.varid = cmp.getLabel()
@@ -933,7 +932,7 @@ parserdefault:
 		}
 	case 52:
 		parserDollar = parserS[parserpt-8 : parserpt+1]
-//line parser.y:307
+//line parser.y:306
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[7].tag)
@@ -941,7 +940,7 @@ parserdefault:
 		}
 	case 53:
 		parserDollar = parserS[parserpt-10 : parserpt+1]
-//line parser.y:313
+//line parser.y:312
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[7].tag)
@@ -955,7 +954,7 @@ parserdefault:
 		}
 	case 54:
 		parserDollar = parserS[parserpt-13 : parserpt+1]
-//line parser.y:325
+//line parser.y:324
 		{
 			if !prep {
 				cmp.exec("-> " + parserDollar[3].varid)
@@ -966,7 +965,7 @@ parserdefault:
 		}
 	case 55:
 		parserDollar = parserS[parserpt-17 : parserpt+1]
-//line parser.y:334
+//line parser.y:333
 		{
 			if !prep {
 				cmp.lockrecord(parserDollar[7].tag)
@@ -978,7 +977,7 @@ parserdefault:
 		}
 	case 56:
 		parserDollar = parserS[parserpt-19 : parserpt+1]
-//line parser.y:344
+//line parser.y:343
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[8].tag)
@@ -992,7 +991,7 @@ parserdefault:
 		}
 	case 57:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:358
+//line parser.y:357
 		{
 			if !prep {
 				cmp.exec("push")
@@ -1001,7 +1000,7 @@ parserdefault:
 		}
 	case 58:
 		parserDollar = parserS[parserpt-7 : parserpt+1]
-//line parser.y:365
+//line parser.y:364
 		{
 			if !prep {
 				cmp.registerLocal(parserDollar[4].ident)
@@ -1010,7 +1009,7 @@ parserdefault:
 		}
 	case 59:
 		parserDollar = parserS[parserpt-9 : parserpt+1]
-//line parser.y:372
+//line parser.y:371
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[6].tag)
@@ -1023,7 +1022,7 @@ parserdefault:
 		}
 	case 60:
 		parserDollar = parserS[parserpt-15 : parserpt+1]
-//line parser.y:383
+//line parser.y:382
 		{
 			if !prep {
 				cmp.beginRecord(parserDollar[7].tag)
@@ -1031,7 +1030,7 @@ parserdefault:
 		}
 	case 61:
 		parserDollar = parserS[parserpt-17 : parserpt+1]
-//line parser.y:389
+//line parser.y:388
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[7].tag)
@@ -1046,7 +1045,7 @@ parserdefault:
 		}
 	case 66:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:410
+//line parser.y:409
 		{
 			if !prep {
 				i, t := cmp.getProcArgs(cmp.callpname)
@@ -1058,7 +1057,7 @@ parserdefault:
 		}
 	case 67:
 		parserDollar = parserS[parserpt-2 : parserpt+1]
-//line parser.y:421
+//line parser.y:420
 		{
 			if !prep {
 				cmp.exec("V " + parserDollar[2].ident)
@@ -1066,7 +1065,7 @@ parserdefault:
 		}
 	case 68:
 		parserDollar = parserS[parserpt-2 : parserpt+1]
-//line parser.y:427
+//line parser.y:426
 		{
 			if !prep {
 				cmp.exec("P " + parserDollar[2].ident)
@@ -1074,7 +1073,7 @@ parserdefault:
 		}
 	case 69:
 		parserDollar = parserS[parserpt-2 : parserpt+1]
-//line parser.y:434
+//line parser.y:433
 		{
 			if !prep {
 				cmp.procrec = make([]string, 0)
@@ -1083,7 +1082,7 @@ parserdefault:
 		}
 	case 70:
 		parserDollar = parserS[parserpt-4 : parserpt+1]
-//line parser.y:441
+//line parser.y:440
 		{
 			if !prep {
 				cmp.endRecord(parserDollar[2].tag)
@@ -1102,7 +1101,7 @@ parserdefault:
 		}
 	case 71:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:459
+//line parser.y:458
 		{
 			if !prep {
 				cmp.callpname = parserDollar[1].ident
@@ -1112,7 +1111,7 @@ parserdefault:
 		}
 	case 72:
 		parserDollar = parserS[parserpt-5 : parserpt+1]
-//line parser.y:467
+//line parser.y:466
 		{
 			if !prep {
 				cmp.argindex = 0
@@ -1120,19 +1119,19 @@ parserdefault:
 		}
 	case 76:
 		parserDollar = parserS[parserpt-0 : parserpt+1]
-//line parser.y:479
+//line parser.y:478
 		{
 			parserVAL.tag = cmp.getTag()
 		}
 	case 77:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:484
+//line parser.y:483
 		{
 			parserVAL.varid = parserDollar[1].varid
 		}
 	case 78:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:488
+//line parser.y:487
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1143,13 +1142,13 @@ parserdefault:
 		}
 	case 79:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:497
+//line parser.y:496
 		{
 			parserVAL.varid = parserDollar[1].varid
 		}
 	case 80:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:501
+//line parser.y:500
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1160,13 +1159,13 @@ parserdefault:
 		}
 	case 81:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:511
+//line parser.y:510
 		{
 			parserVAL.varid = parserDollar[1].varid
 		}
 	case 82:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:515
+//line parser.y:514
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1177,7 +1176,7 @@ parserdefault:
 		}
 	case 83:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:524
+//line parser.y:523
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1188,7 +1187,7 @@ parserdefault:
 		}
 	case 84:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:533
+//line parser.y:532
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1199,7 +1198,7 @@ parserdefault:
 		}
 	case 85:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:542
+//line parser.y:541
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1210,7 +1209,7 @@ parserdefault:
 		}
 	case 86:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:551
+//line parser.y:550
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1221,7 +1220,7 @@ parserdefault:
 		}
 	case 87:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:560
+//line parser.y:559
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1232,13 +1231,13 @@ parserdefault:
 		}
 	case 88:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:569
+//line parser.y:568
 		{
 			parserVAL.varid = parserDollar[1].varid
 		}
 	case 89:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:573
+//line parser.y:572
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1249,7 +1248,7 @@ parserdefault:
 		}
 	case 90:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:582
+//line parser.y:581
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1260,7 +1259,7 @@ parserdefault:
 		}
 	case 92:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:592
+//line parser.y:591
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1271,13 +1270,13 @@ parserdefault:
 		}
 	case 93:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:601
+//line parser.y:600
 		{
 			parserVAL.varid = parserDollar[1].varid
 		}
 	case 94:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:605
+//line parser.y:604
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1288,7 +1287,7 @@ parserdefault:
 		}
 	case 95:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:614
+//line parser.y:613
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1299,7 +1298,7 @@ parserdefault:
 		}
 	case 96:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:623
+//line parser.y:622
 		{
 			if !prep {
 				tmp := cmp.getTmp()
@@ -1310,27 +1309,31 @@ parserdefault:
 		}
 	case 98:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:634
+//line parser.y:633
 		{
 			parserVAL.varid = parserDollar[1].varid
 		}
 	case 99:
 		parserDollar = parserS[parserpt-3 : parserpt+1]
-//line parser.y:638
+//line parser.y:637
 		{
 			parserVAL.varid = parserDollar[2].varid
 		}
 	case 100:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:643
+//line parser.y:642
 		{
 			if !prep {
-				parserVAL.varid = strconv.Itoa(parserDollar[1].num)
+				a := strconv.Itoa(parserDollar[1].num)
+				tmp := cmp.getTmp()
+				cmp.exec("$" + tmp + " += " + a)
+				cmp.unexec("$" + tmp + " -= " + a)
+				parserVAL.varid = tmp
 			}
 		}
 	case 101:
 		parserDollar = parserS[parserpt-1 : parserpt+1]
-//line parser.y:649
+//line parser.y:652
 		{
 			if !prep {
 				cmp.addUsedVar(parserDollar[1].ident)
@@ -1343,7 +1346,7 @@ parserdefault:
 		}
 	case 102:
 		parserDollar = parserS[parserpt-4 : parserpt+1]
-//line parser.y:660
+//line parser.y:663
 		{
 			if !prep {
 				cmp.addUsedVar(parserDollar[1].ident)

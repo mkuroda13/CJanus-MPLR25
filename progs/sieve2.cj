@@ -1,4 +1,4 @@
-int p[100]
+int[100] p
 int max
 int maxrt
 sync plock

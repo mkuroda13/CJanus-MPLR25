@@ -58,12 +58,11 @@ globvardecl : INT IDENT
 		cmp.exec("set #"+$2+" "+cmp.getMem(1))
 	}
 }
-			| INT IDENT LSB variable RSB
+			| INT LSB NUM RSB IDENT
 {
 	if !prep{
-		cmp.registerGlobal($2,T_INTA)
-		size,_ := strconv.Atoi($4)
-		cmp.exec("set #"+$2+" "+cmp.getMem(size))
+		cmp.registerGlobal($5,T_INTA)
+		cmp.exec("set #"+$5+" "+cmp.getMem($3))
 	}
 }
 
@@ -642,7 +641,11 @@ expr6 : variable
 variable : NUM
 {
 	if !prep{
-		$$ = strconv.Itoa($1)
+		a := strconv.Itoa($1)
+		tmp := cmp.getTmp()
+		cmp.exec("$"+tmp + " += " + a)
+		cmp.unexec("$"+tmp + " -= " + a)
+		$$ = tmp
 	}
 }
 		 | IDENT
